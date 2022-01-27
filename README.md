@@ -1,9 +1,5 @@
 # CS1-jbergen
-This is the first modification
-CS1 is cool!!!
+This is now a different file
 
-# Second commit
-This is also cool!!!
-
-# third commit
-Is this still cool???
+# Thursday 1/27/22
+We learned everything about git and github. We are all masters now!!!
