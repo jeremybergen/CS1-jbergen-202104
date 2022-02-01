@@ -1,8 +1,16 @@
 # CS1-jbergen
 This is now a different file
 
-# Thursday 1/27/22
-We learned everything about git and github. We are all masters now!!!
+## Assignments
 
-# more readme shenanigans
-I'm not an english professor...
+### Assignment #0
+
+| Name | Value |
+| :--- | :--- |
+| Name | Hello World |
+| Description | A basic hello world program |
+| Due Date | 1-Jan-20 |
+| Status | Done |
+| Location | https://github.com/jeremybergen/CS1-jbergen1/hello.cpp |
+| Self Grade | 100/100 |
+| Notes | completed all the requirements and tested program many times |
