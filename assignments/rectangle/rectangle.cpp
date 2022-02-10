@@ -30,5 +30,11 @@ int main() {
     perimeter = 2 * side1 + 2 * side2;
 
     //Step 4
+    // cout << "area: " << area << endl 
+    //      << "perimeter: " << perimeter << endl;
+    cout << "The area and perimeter for the rectangle with sides " 
+         << side1 << " and " << side2 << " is:"
+         << endl << "area: " << area << endl 
+         << "perimeter: " << perimeter << endl;
     return 0;
 }
