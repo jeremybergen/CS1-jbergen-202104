@@ -16,6 +16,7 @@ using namespace std;
 
 int main() {
     float side1, side2;
+    float area, perimeter;
     //Step 1
     cout << "Please enter side1 and side2 separated by a space: ";
     cin >> side1 >> side2;
@@ -23,8 +24,10 @@ int main() {
          << side1 << " for side1 and "
          << side2 << " for side2." << endl;
     //Step 2
+    area = side1 * side2;
 
     //Step 3
+    perimeter = 2 * side1 + 2 * side2;
 
     //Step 4
     return 0;
