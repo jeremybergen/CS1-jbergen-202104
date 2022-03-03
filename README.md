@@ -26,6 +26,18 @@
 | Self Grade | 100/100 |
 | Notes | completed all the requirements and tested program many times |
 
+### Assignment #1
+
+| Name | Value |
+| :--- | :--- |
+| Name | Hello World |
+| Description | A basic hello world program |
+| Due Date | 1-Jan-20 |
+| Status | Done |
+| Location | https://github.com/jeremybergen/CS1-jbergen/hello.cpp |
+| Self Grade | 100/100 |
+| Notes | completed all the requirements and tested program many times |
+
 ## Labs
 
 ### Lab #1
