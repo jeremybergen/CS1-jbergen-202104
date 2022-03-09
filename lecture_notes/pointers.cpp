@@ -4,23 +4,63 @@
 
 using namespace std;
 
+void addnums(int **, float*);
+
 int main(int argc, char *argv[]) {
     int num1;
+    float num2;
     int *ptr1;
+    float *ptr2;
+    int **ptr3;
+
+    num1 = 42;
+    num2 = 15.5;
 
     ptr1 = &num1;
+    ptr2 = &num2;
+    ptr3 = &ptr1;
 
-    int *ptr2 = new int;
-    int *ptr3 = new int;
+    addnums(ptr3, ptr2);
 
-    *ptr2 = 42;
-    cout << "*ptr2 = " << *ptr2 << endl;
-    cout << "ptr1 = " << ptr1 << endl;
-    cout << "ptr2 = " << ptr2 << endl;
-    cout << "ptr3 = " << ptr3 << endl;
+    cout << "inside main(): " << num1 << endl;
 
-    delete ptr2;
-    delete ptr3;
+    return 0;
+}
+
+void addnums(int **num1, float *num2) {
+    cout << *(*num1) << endl;
+    cout << *num2 << endl;
+    // *num1 = 84;
+    cout << *(*num1) + *num2 << endl;
+}
+
+
+
+
+
+
+
+
+
+
+
+    // Tuesday
+    // int num1;
+    // int *ptr1;
+
+    // ptr1 = &num1;
+
+    // int *ptr2 = new int;
+    // int *ptr3 = new int;
+
+    // *ptr2 = 42;
+    // cout << "*ptr2 = " << *ptr2 << endl;
+    // cout << "ptr1 = " << ptr1 << endl;
+    // cout << "ptr2 = " << ptr2 << endl;
+    // cout << "ptr3 = " << ptr3 << endl;
+
+    // delete ptr2;
+    // delete ptr3;
     // double somenum;
     // double somenum2;
     // double somenum3;
@@ -45,27 +85,12 @@ int main(int argc, char *argv[]) {
     // cout << "*ptr = " << *ptr << endl;
 
 
-    return 0;
-}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // Monday
     // int num1 = 42;
     // int num2 = 24;
     // double num3 = 0.1234;
