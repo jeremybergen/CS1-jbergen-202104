@@ -4,34 +4,36 @@
 
 using namespace std;
 
-void addnums(int **, float*);
+int addnums(int *, float*);
 
 int main(int argc, char *argv[]) {
     int num1;
     float num2;
     int *ptr1;
     float *ptr2;
-    int **ptr3;
+
+    int (*add)(int *, float *) = addnums;
 
     num1 = 42;
     num2 = 15.5;
 
     ptr1 = &num1;
     ptr2 = &num2;
-    ptr3 = &ptr1;
 
-    addnums(ptr3, ptr2);
+    cout << (*add)(ptr1, ptr2) << endl;
+    cout << addnums(ptr1, ptr2) << endl;
 
     cout << "inside main(): " << num1 << endl;
 
     return 0;
 }
 
-void addnums(int **num1, float *num2) {
-    cout << *(*num1) << endl;
+int addnums(int *num1, float *num2) {
+    cout << *num1 << endl;
     cout << *num2 << endl;
     // *num1 = 84;
-    cout << *(*num1) + *num2 << endl;
+    // cout << *num1 + *num2 << endl;
+    return *num1 + *num2;   
 }
 
 
