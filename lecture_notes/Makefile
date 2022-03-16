@@ -32,5 +32,9 @@ clean:
 run:
 	./$(PROGRAM)
 
+test:
+	./$(PROGRAM) test
+
 tests:
 	./$(PROGRAM) test
+

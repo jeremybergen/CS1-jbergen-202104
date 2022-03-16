@@ -14,7 +14,7 @@ write a test function to test functions that work with command line arguments
 
 using namespace std;
 
-void greetuser(string *);
+void greetuser(string *, const bool &);
 void promptname(string *);
 void promptsides(double *, double *);
 void calcrectangle(double *, double *);
@@ -28,11 +28,23 @@ int main(int argc, char *argv[]) {
     double *side1 = new double;
     double *side2 = new double;
     bool keeprunning = false;
+    bool input = false;
 
-    tests();
+    if (argc == 2 && (string)argv[1] == "test"){
+        tests();
+        return 0;
+    } else if (argc == 4) {
+        *firstname = (string)argv[1];
+        *side1 = stod((string)argv[2]);
+        *side2 = stod((string)argv[3]);
+        input = true;
+        greetuser(firstname, input);
+        calcrectangle(side1, side2);
+        return 0;
+    }
 
     promptname(firstname);
-    greetuser(firstname);
+    greetuser(firstname, input);
     do {
         promptsides(side1, side2);
         calcrectangle(side1, side2);
@@ -54,8 +66,14 @@ void tests() {
     *side1 = 42;
     *side2 = 15;
     assert(calcarea(side1, side2) == 630);
-    assert(calcperim(2.0, 5.0) == 14);
+
+    *side1 = 2.0;
+    *side2 = 5.0;
+    assert(calcperim(side1, side2) == 14);
     cout << "All test cases passed!" << endl;
+
+    delete side1;
+    delete side2;
 }
 
 void calcanother(bool &keeprunning) {
@@ -123,6 +141,10 @@ void promptname(string *firstname) {
     cin >> *firstname;
 }
 
-void greetuser(string *firstname) {
-    cout << "Welcome " << *firstname << " to our program!" << endl;
+void greetuser(string *firstname, const bool &input) {
+    if (!input) {
+        cout << "Welcome " << *firstname << " to our program!" << endl;
+    } else {
+        cout << *firstname << " this will only calculate the rectangle you enter from the arguments." << endl;
+    }
 }
