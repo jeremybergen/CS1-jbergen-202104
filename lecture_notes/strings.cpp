@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 
 using namespace std;
 
@@ -15,12 +16,62 @@ int main(int argc, char *argv[]) {
     // char lastname[] = "Bergen";
     // char fullname[] = "";
 
+    // "Jeremy Bergen"
     fullname = firstname + " " + lastname;
     size_t i = 0;
-    while (fullname[i] != '\0') {
-        cout << i << ": " << fullname[i] << endl;
-        i++;
-    }
+
+    string title = "The Almight Tallest";
+
+    // cout << fullname.find("Bergen") << endl;
+    cout << fullname << endl;
+    fullname.insert(fullname.find("Bergen"), title);
+    fullname.insert(fullname.find("Bergen") + title.size(), 1, ' ');
+    cout << fullname << endl;
+    // cout << fullname << endl;
+    // fullname.insert(7, title);
+    // fullname.insert(7 + title.size(), 1, ' ');
+    // cout << fullname << endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // for (auto it = fullname.rbegin(); it != fullname.rend(); it++) {
+    //     cout << *it << endl;
+    // }
+    // for (auto ch: fullname) {
+    //     cout << "ch: " << ch << endl;
+    // }
+
+    // for (size_t i = 0; i < fullname.size(); i++) {
+    //     cout << "fullname[" << i << "]: " << fullname[i] << endl;
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // while (fullname[i] != '\0') {
+    //     cout << i << ": " << fullname[i] << endl;
+    //     i++;
+    // }
 
     // stringlength = fullname.length();
     // cout << "The length of our string is: " << stringlength << endl;
