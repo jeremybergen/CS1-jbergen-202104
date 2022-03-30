@@ -2,19 +2,119 @@
 
 using namespace std;
 
+void populate_array(int[], const size_t&);
+
 int main(int argc, char *argv[]) {
-    size_t arr_size;
-    int somenum;
-    
-    // arr_size = 5;
-    
-    unsigned int somenumbers[50] = {42, 15, 29, 19, 1239244, 123, 51, 213};
+    size_t arr_size = 10;
+    // int somenums[arr_size] = {};
+    int *somenums = new int[arr_size];
+    // int *morenums = new int[arr_size];
+    int morenums[arr_size] = {};
 
-    arr_size = sizeof(somenumbers)/sizeof(int);
+    populate_array(morenums, arr_size);
 
+    cout << "somenums[4]: " << morenums[4] << endl;
+
+    return 0;
+}
+
+void populate_array(int somearray[], const size_t &arr_size){
     for (size_t i = 0; i < arr_size; i++) {
-        cout << "somenumbers[" << i << "]: " << somenumbers[i] << endl;
+        somearray[i] = i * 5;
     }
+}
+
+
+
+    // for (size_t i = 0; i < arr_size; i++) {
+    //     somenums[i] = i*5;
+    // }
+
+    // morenums = somenums;
+    // cout << "somenums: " << somenums << endl;
+    // // cout << "morenums[4]: " << morenums << endl;
+
+    // // somenums[4] = 1024;
+    // // cout << "morenums[4]: " << morenums[4] << endl;
+    // for (size_t i = 0; i < arr_size; i++) {
+    //     morenums[i] = somenums[i];
+    // }
+
+    // somenums[4] = 1024;
+    // cout << "somenums[4]: " << somenums[4] << endl;
+    // cout << "morenums[4]: " << morenums[4] << endl;
+
+    // delete[] somenums;
+    // delete[] morenums;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // unsigned long long *ptr = new unsigned long long[arr_size];
+
+    // for (size_t i = 0; i < arr_size; i++) {
+    //     somenums[i] = 0;
+    // }
+    // for (size_t i = 0; i < arr_size; i++) {
+    //     ptr[i] = 0;
+    // }
+
+    // ptr[0] = 42;
+    // ptr[1] = 15;
+
+    // cout << "ptr[0]: " << ptr[0] << endl;
+
+    // // delete[] ptr;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // size_t arr_size;
+    // int somenum;
+    
+    // // arr_size = 5;
+    
+    // unsigned int somenumbers[50] = {42, 15, 29, 19, 1239244, 123, 51, 213};
+
+    // arr_size = sizeof(somenumbers)/sizeof(int);
+
+    // for (size_t i = 0; i < arr_size; i++) {
+    //     cout << "somenumbers[" << i << "]: " << somenumbers[i] << endl;
+    // }
 
     // cout << sizeof(somenumbers)/sizeof(int) << endl;
 
@@ -51,5 +151,3 @@ int main(int argc, char *argv[]) {
     // ptr -= 1;
     // cout << "somenumbers: " << *ptr << endl;
     // cout << "somenumbers: " <<  << endl;
-    return 0;
-}
