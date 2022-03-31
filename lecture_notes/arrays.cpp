@@ -1,19 +1,73 @@
 #include <iostream>
+#include <string>
+#include "string.h"
 
 using namespace std;
 
-void populate_array(int[], const size_t&);
+void populate_array(int, const size_t&);
 
 int main(int argc, char *argv[]) {
-    size_t arr_size = 10;
-    // int somenums[arr_size] = {};
-    int *somenums = new int[arr_size];
-    // int *morenums = new int[arr_size];
-    int morenums[arr_size] = {};
+    // char fullname[] = "Jeremy Bergen";
+    char sentence[] = "This is a sentence";
+    char *pch;
 
-    populate_array(morenums, arr_size);
+    pch = strtok(sentence, " ");
+    while (pch != NULL) {
+        cout << "pch: " << pch << endl;
+        pch = strtok(NULL, " ");
+    }
 
-    cout << "somenums[4]: " << morenums[4] << endl;
+
+    
+    // string split_words[40];
+    // size_t num_words = 0;
+    // string tmp_word = "";
+
+    // string sentence = "This is    a   \t     sentence";
+
+    // for (size_t i = 0; i < sentence.length(); i++) {
+    //     if (sentence[i] == ' ' || sentence[i] == '\t' || sentence[i] == '\n') {
+    //         if (tmp_word.length() != 0) {
+    //             split_words[num_words] = tmp_word;
+    //             tmp_word = "";
+    //             num_words++;
+    //         }
+    //     } else {
+    //         tmp_word += sentence[i];
+    //     }
+    // }
+
+    // if (tmp_word.length() != 0) {
+    //     split_words[num_words] = tmp_word;
+    //     tmp_word = "";
+    //     num_words++;
+    // }
+
+    // for (size_t i = 0; i < num_words; i++) {
+    //     cout << "split_words[" << i << "]: " << split_words[i] << endl;
+    // }
+
+    // fullnameagain = fullname;
+    // for (size_t i = 0; i < strlen(fullname); i++) {
+    //     fullnameagain[i] = fullname[i];
+    // }
+    // fullnameagain[strlen(fullname)] = '\0';
+
+    // strcpy(fullnameagain, fullname);
+
+    // cout << "fullnameagain: " << fullnameagain << endl;
+
+    // string full_name = "Jeremy Bergen";
+
+    // int counter = 0;
+    // int i = 0;
+    // while (fullname[i] != '\0') {
+    //     counter++;
+    //     i++;
+    // }
+
+    // cout << "full_name.length(): " << full_name.length() << endl;
+    // cout << "full_name.length(): " << strlen(fullname) << endl;
 
     return 0;
 }
@@ -24,6 +78,17 @@ void populate_array(int somearray[], const size_t &arr_size){
     }
 }
 
+
+    // size_t arr_size = 10;
+    // // int somenums[arr_size] = {};
+    // int *somenums = new int[arr_size];
+    // // int *morenums = new int[arr_size];
+    // int morenums[arr_size] = {};
+
+    // populate_array(somenums, arr_size);
+    // // populate_array(morenums, arr_size);
+
+    // cout << "somenums[4]: " << somenums[4] << endl;
 
 
     // for (size_t i = 0; i < arr_size; i++) {
