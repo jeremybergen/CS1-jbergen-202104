@@ -1,21 +1,60 @@
 #include <iostream>
 #include <string>
 #include "string.h"
+#include <algorithm>
+#include <iterator>
+#include <functional>
 
 using namespace std;
 
 void populate_array(int, const size_t&);
+void swapem(int*, const size_t&, const size_t&);
 
 int main(int argc, char *argv[]) {
-    // char fullname[] = "Jeremy Bergen";
-    char sentence[] = "This is a sentence";
-    char *pch;
+    size_t arr_size = 10;
+    int mynums[arr_size] = {73, 8, 42, 5, 9, 1, 52, 4, 6, 2};
+    bool swapped = false;
 
-    pch = strtok(sentence, " ");
-    while (pch != NULL) {
-        cout << "pch: " << pch << endl;
-        pch = strtok(NULL, " ");
+    for (size_t i = 0; i < arr_size-1; i++) {
+        swapped = false;
+        for (size_t j = 0; j < arr_size-1-i; j++) {
+            if (mynums[j] > mynums[j+1]) {
+                swapem(mynums, arr_size, j);
+                swapped = true;
+            }
+        }
+        if (!swapped) {
+            break;
+        }
+        cout << "Array at i: " << i << endl;
+        for (size_t k = 0; k < arr_size; k++) {
+            cout << mynums[k] << " ";
+        }
+        cout << endl;
     }
+
+    cout << "Final array: " << endl;
+    for (size_t k = 0; k < arr_size; k++) {
+            cout << mynums[k] << " ";
+        }
+    cout << endl;
+
+    // sort(begin(mynums), end(mynums));
+
+    // for (size_t i = 0; i < arr_size; i++) {
+    //     cout << mynums[i] << endl;
+    // }
+
+
+    // // char fullname[] = "Jeremy Bergen";
+    // char sentence[] = "This is a sentence";
+    // char *pch;
+
+    // pch = strtok(sentence, " ");
+    // while (pch != NULL) {
+    //     cout << "pch: " << pch << endl;
+    //     pch = strtok(NULL, " ");
+    // }
 
 
     
@@ -70,6 +109,12 @@ int main(int argc, char *argv[]) {
     // cout << "full_name.length(): " << strlen(fullname) << endl;
 
     return 0;
+}
+
+void swapem(int numbers[], const size_t& arr_size, const size_t& j) {
+    int tmpvar = numbers[j+1];
+    numbers[j+1] = numbers[j];
+    numbers[j] = tmpvar;
 }
 
 void populate_array(int somearray[], const size_t &arr_size){
