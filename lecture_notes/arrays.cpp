@@ -4,260 +4,86 @@
 #include <algorithm>
 #include <iterator>
 #include <functional>
+#include <iomanip>
 
 using namespace std;
 
-void populate_array(int, const size_t&);
-void swapem(int*, const size_t&, const size_t&);
+// const size_t board_size = 5;
+
+// void printarray(char[board_size][board_size]);
+void populate_array(int[], const size_t&);
+void print_array(int[], const size_t&);
+void find_largest(int[], const size_t&);
 
 int main(int argc, char *argv[]) {
     size_t arr_size = 10;
-    int mynums[arr_size] = {73, 8, 42, 5, 9, 1, 52, 4, 6, 2};
-    bool swapped = false;
+    int mynums[arr_size] = {0};
 
-    for (size_t i = 0; i < arr_size-1; i++) {
-        swapped = false;
-        for (size_t j = 0; j < arr_size-1-i; j++) {
-            if (mynums[j] > mynums[j+1]) {
-                swapem(mynums, arr_size, j);
-                swapped = true;
-            }
-        }
-        if (!swapped) {
-            break;
-        }
-        cout << "Array at i: " << i << endl;
-        for (size_t k = 0; k < arr_size; k++) {
-            cout << mynums[k] << " ";
-        }
-        cout << endl;
-    }
+    populate_array(mynums, arr_size);
 
-    cout << "Final array: " << endl;
-    for (size_t k = 0; k < arr_size; k++) {
-            cout << mynums[k] << " ";
-        }
-    cout << endl;
+    print_array(mynums, arr_size);
 
-    // sort(begin(mynums), end(mynums));
-
-    // for (size_t i = 0; i < arr_size; i++) {
-    //     cout << mynums[i] << endl;
-    // }
-
-
-    // // char fullname[] = "Jeremy Bergen";
-    // char sentence[] = "This is a sentence";
-    // char *pch;
-
-    // pch = strtok(sentence, " ");
-    // while (pch != NULL) {
-    //     cout << "pch: " << pch << endl;
-    //     pch = strtok(NULL, " ");
-    // }
-
-
-    
-    // string split_words[40];
-    // size_t num_words = 0;
-    // string tmp_word = "";
-
-    // string sentence = "This is    a   \t     sentence";
-
-    // for (size_t i = 0; i < sentence.length(); i++) {
-    //     if (sentence[i] == ' ' || sentence[i] == '\t' || sentence[i] == '\n') {
-    //         if (tmp_word.length() != 0) {
-    //             split_words[num_words] = tmp_word;
-    //             tmp_word = "";
-    //             num_words++;
-    //         }
-    //     } else {
-    //         tmp_word += sentence[i];
-    //     }
-    // }
-
-    // if (tmp_word.length() != 0) {
-    //     split_words[num_words] = tmp_word;
-    //     tmp_word = "";
-    //     num_words++;
-    // }
-
-    // for (size_t i = 0; i < num_words; i++) {
-    //     cout << "split_words[" << i << "]: " << split_words[i] << endl;
-    // }
-
-    // fullnameagain = fullname;
-    // for (size_t i = 0; i < strlen(fullname); i++) {
-    //     fullnameagain[i] = fullname[i];
-    // }
-    // fullnameagain[strlen(fullname)] = '\0';
-
-    // strcpy(fullnameagain, fullname);
-
-    // cout << "fullnameagain: " << fullnameagain << endl;
-
-    // string full_name = "Jeremy Bergen";
-
-    // int counter = 0;
-    // int i = 0;
-    // while (fullname[i] != '\0') {
-    //     counter++;
-    //     i++;
-    // }
-
-    // cout << "full_name.length(): " << full_name.length() << endl;
-    // cout << "full_name.length(): " << strlen(fullname) << endl;
-
+    find_largest(mynums, arr_size);
     return 0;
 }
 
-void swapem(int numbers[], const size_t& arr_size, const size_t& j) {
-    int tmpvar = numbers[j+1];
-    numbers[j+1] = numbers[j];
-    numbers[j] = tmpvar;
+void find_largest(int numbers[], const size_t& arr_size) {
+    int largest = numbers[0];
+    for (size_t i = 1; i < arr_size; i++) {
+        if (numbers[i] > largest) {
+            largest = numbers[i];
+        }
+    }
+    cout << "The largest value from the list is: " << largest << endl;
 }
 
-void populate_array(int somearray[], const size_t &arr_size){
+void print_array(int numbers[], const size_t& arr_size) {
     for (size_t i = 0; i < arr_size; i++) {
-        somearray[i] = i * 5;
+        cout << numbers[i] << " ";
+    }
+    cout << endl;
+}
+
+void populate_array(int numbers[], const size_t& arr_size) {
+    for (size_t i = 0; i < arr_size; i++) {
+        cout << "Please enter a number: ";
+        cin >> numbers[i];
     }
 }
 
-
-    // size_t arr_size = 10;
-    // // int somenums[arr_size] = {};
-    // int *somenums = new int[arr_size];
-    // // int *morenums = new int[arr_size];
-    // int morenums[arr_size] = {};
-
-    // populate_array(somenums, arr_size);
-    // // populate_array(morenums, arr_size);
-
-    // cout << "somenums[4]: " << somenums[4] << endl;
-
-
-    // for (size_t i = 0; i < arr_size; i++) {
-    //     somenums[i] = i*5;
-    // }
-
-    // morenums = somenums;
-    // cout << "somenums: " << somenums << endl;
-    // // cout << "morenums[4]: " << morenums << endl;
-
-    // // somenums[4] = 1024;
-    // // cout << "morenums[4]: " << morenums[4] << endl;
-    // for (size_t i = 0; i < arr_size; i++) {
-    //     morenums[i] = somenums[i];
-    // }
-
-    // somenums[4] = 1024;
-    // cout << "somenums[4]: " << somenums[4] << endl;
-    // cout << "morenums[4]: " << morenums[4] << endl;
-
-    // delete[] somenums;
-    // delete[] morenums;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // unsigned long long *ptr = new unsigned long long[arr_size];
-
-    // for (size_t i = 0; i < arr_size; i++) {
-    //     somenums[i] = 0;
-    // }
-    // for (size_t i = 0; i < arr_size; i++) {
-    //     ptr[i] = 0;
-    // }
-
-    // ptr[0] = 42;
-    // ptr[1] = 15;
-
-    // cout << "ptr[0]: " << ptr[0] << endl;
-
-    // // delete[] ptr;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // size_t arr_size;
-    // int somenum;
-    
-    // // arr_size = 5;
-    
-    // unsigned int somenumbers[50] = {42, 15, 29, 19, 1239244, 123, 51, 213};
-
-    // arr_size = sizeof(somenumbers)/sizeof(int);
-
-    // for (size_t i = 0; i < arr_size; i++) {
-    //     cout << "somenumbers[" << i << "]: " << somenumbers[i] << endl;
-    // }
-
-    // cout << sizeof(somenumbers)/sizeof(int) << endl;
-
-    // for (size_t i = 0; i < arr_size; i++) {
-    //     somenumbers[i] = -1;
-    // }
-
-    // int *ptr;
-
-    // ptr = &somenumbers[4];
-
-
-    // somenumbers[0] = 42;
-    // somenumbers[1] = 15;
-    // somenumbers[2] = 29;
-    // somenumbers[3] = 19;
-    // somenumbers[4] = 1239244;
-    // somenumbers[4] = somenumbers[2] + somenumbers[3];
-
-    // cout << somenumbers[4] << endl;
-    // "This is a string\0"
-    // size_t i = 0;
-    // size_t count = 0;
-    // while(somenumbers[i] != -1 && i < arr_size) {
-    //     count++;
-    //     i++;
-    // }
-    // cout << "There are " << count << " elements in my array" << endl;
-
-
-    // cout << "somenumbers[5]: " << somenumbers[5] << endl;
-
-    // cout << "somenumbers: " << *ptr << endl;
-    // ptr -= 1;
-    // cout << "somenumbers: " << *ptr << endl;
-    // cout << "somenumbers: " <<  << endl;
+// void printarray(char myarray[board_size][board_size]) {
+//     for (size_t i = 0; i < board_size; i++) {
+//         for (size_t j = 0; j < board_size; j++) {
+//             cout << setw(1) << myarray[i][j] << " ";
+//         }
+//         cout << endl;
+//     }
+// }
+
+
+
+    // char tictactoe[board_size][board_size] = {0};
+    // // char *ptr;
+
+    // // ptr = tictactoe[0];
+    // tictactoe[0][0] = 'X';
+    // tictactoe[0][1] = 'O';
+    // tictactoe[1][0] = 'J';
+    // tictactoe[2][1] = 'O';
+    // tictactoe[0][2] = 'X';
+    // tictactoe[2][0] = 'O';
+
+    // printarray(tictactoe);
+
+    // // cout << ptr << endl;
+    // // cout << ptr[0] << endl;
+    // // ptr += 3;
+    // // cout << ptr << endl;
+    // // cout << ptr[0] << endl;
+
+    // // for (size_t i = 0; i < 3; i++) {
+    // //     for (size_t j = 0; j < 3; j++) {
+    // //         cout << setw(1) << tictactoe[i][j] << " ";
+    // //     }
+    // //     cout << endl;
+    // // }
