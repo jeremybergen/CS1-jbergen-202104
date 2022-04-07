@@ -11,40 +11,88 @@ using namespace std;
 // const size_t board_size = 5;
 
 // void printarray(char[board_size][board_size]);
-void populate_array(int[], const size_t&);
-void print_array(int[], const size_t&);
-void find_largest(int[], const size_t&);
+template <class t1>
+void populate_array(t1[], const size_t&);
+
+template <class t1>
+void print_array(t1[], const size_t&);
+
+template <class t1>
+void find_largest(t1[], const size_t&, t1&);
+
+template <class t1>
+void bubble_sort(t1[], const size_t&);
+
+template <class t1>
+void swapem(t1[], const size_t&);
 
 int main(int argc, char *argv[]) {
     size_t arr_size = 10;
-    int mynums[arr_size] = {0};
+    double mynums[arr_size] = {0};
+    double largest = 0;
 
-    populate_array(mynums, arr_size);
+    populate_array<double>(mynums, arr_size);
 
-    print_array(mynums, arr_size);
+    print_array<double>(mynums, arr_size);
 
-    find_largest(mynums, arr_size);
+    bubble_sort<double>(mynums, arr_size);
+
+    print_array<double>(mynums, arr_size);
+
+    // find_largest(mynums, arr_size, largest);
+
+    cout << "The largest number from the list is: " << mynums[0] << endl;
     return 0;
 }
 
-void find_largest(int numbers[], const size_t& arr_size) {
-    int largest = numbers[0];
+template <class t1>
+void swapem(t1 numbers[], const size_t& position) {
+    t1 tmpnum = numbers[position+1];
+    numbers[position+1] = numbers[position];
+    numbers[position] = tmpnum;
+}
+
+template <class t1>
+void bubble_sort(t1 numbers[], const size_t& arr_size) {
+    bool swapped = false;
+    for (size_t i = 0; i < (arr_size - 1); i++) {
+        swapped = false;
+        for (size_t j = 0; j < (arr_size - 1) - i; j++) {
+            if (numbers[j] < numbers[j+1]) {
+                swapped = true;
+                swapem<t1>(numbers, j);
+            }
+        }
+        // print_array(numbers, arr_size);
+        if (!swapped) {
+            break;
+        }
+        
+    }
+}
+
+template <class t1>
+void find_largest(t1 numbers[], const size_t& arr_size, t1& largest) {
+    largest = numbers[0];
     for (size_t i = 1; i < arr_size; i++) {
         if (numbers[i] > largest) {
             largest = numbers[i];
         }
     }
-    cout << "The largest value from the list is: " << largest << endl;
+    // cout << "The largest value from the list is: " << largest << endl;
 }
 
-void print_array(int numbers[], const size_t& arr_size) {
+template <class t1>
+void print_array(t1 numbers[], const size_t& arr_size) {
     for (size_t i = 0; i < arr_size; i++) {
         cout << numbers[i] << " ";
     }
     cout << endl;
 }
 
-void populate_array(int numbers[], const size_t& arr_size) {
+template <class t1>
+void populate_array(t1 numbers[], const size_t& arr_size) {
+
     for (size_t i = 0; i < arr_size; i++) {
         cout << "Please enter a number: ";
         cin >> numbers[i];
