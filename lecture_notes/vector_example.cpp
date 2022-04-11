@@ -5,21 +5,40 @@
 
 using namespace std;
 
+template <class t1>
+void findaverage(const vector<t1>&);
+
 int main(int argc, char *argv[]) {
-    // size_t arr_size = 5;
-    // int mynums[arr_size] = {0};
-    vector<int> mynums;
+    vector<double> mynums = {42.5, 15.2, 7.45, 23.75, 5.6};
 
-    mynums.push_back(42);
-    mynums.push_back(15);
-    mynums.push_back(200);
+    mynums.push_back(123.75);
 
-    cout << mynums.size() << endl;
+    findaverage<double>(mynums);
 
-    mynums.pop_back();
+    // for (size_t i = 0; i < mynums.size(); i++) {
+    //     if (mynums.at(i) == 7) {
+    //         mynums.erase(mynums.begin()+i);
+    //     }
+    // }
 
-    cout << mynums.size() << endl;
-    // cout << mynums[0] << endl;
+    // for (size_t i = 0; i < mynums.size(); i++) {
+    //     cout << mynums.at(i) << endl;
+    // }
+    // for (auto ele: mynums) {
+    //     cout << ele << endl;
+    // }
+    // for (auto iter = mynums.end()-1; iter != mynums.begin()-1; iter--) {
+    //     cout << *iter << endl;
+    // }
 
     return 0;
+}
+
+template <class t1>
+void findaverage(const vector<t1> &numbers) {
+    t1 total = 0;
+    for (auto ele: numbers) {
+        total += ele;
+    }
+    cout << "The average of your numbers is: " << (double)total/numbers.size() << endl;
 }
